@@ -1,13 +1,15 @@
 package ar.edu.unahur.obj2.socios
 
-class pedido(var cliente: Cliente, var montoPedido: Float) {
+import kotlin.math.min
+
+class Pedido(var cliente: Cliente, var montoPedido: Float) {
     fun propina() = cliente.propinaQueDeja(montoPedido)
 }
 
 
 class Cliente(var estadoDeAnimo: EstadoDeAnimo, var barrio: Barrio, var dineroEnBolsillo: Float) {
     fun propinaQueDeja(montoPedido: Float) {
-        return estadoDeAnimo.propinaPorAnimo(montoPedido) + barrio.propinaPorBarrio()
+        return barrio.propinaPorBarrio(estadoDeAnimo)
     }
 }
 
@@ -32,12 +34,15 @@ object Resfriado : EstadoDeAnimo() {
 }
 
 abstract class Barrio() {
-    abstract fun propinaPorBarrio()
+    abstract fun propinaPorBarrio(estadoDeAnimo: EstadoDeAnimo)
 }
 
 object LasRosas : Barrio() {
-    override fun propinaPorBarrio() = 50
+    override fun propinaPorBarrio(estadoDeAnimo: EstadoDeAnimo) = estadoDeAnimo.propinaPorAnimo(montoPedido) + 50
 }
 object LasLauchas : Barrio() {
-    override fun propinaPorBarrio() = 
+    override fun propinaPorBarrio(estadoDeAnimo: EstadoDeAnimo) = estadoDeAnimo.propinaPorAnimo(montoPedido) / 2
+}
+object BarrioVerde : Barrio() {
+    override fun propinaPorBarrio(estadoDeAnimo: EstadoDeAnimo) = min(estadoDeAnimo.propinaPorAnimo(montoPedido), 200)
 }
