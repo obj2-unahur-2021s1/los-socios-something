@@ -1,23 +1,12 @@
 package ar.edu.unahur.obj2.socios
 
-class pedido(var cliente: Cliente, var monto: Float) {
-    fun propina() = cliente.propinaQueDeja(monto)
+class Pedido(val cliente: Cliente, val monto: Float) {
+    fun propina() = cliente.calcularPropina(monto)
 }
 
 
-class Cliente(var estadoDeAnimo: EstadoDeAnimo, var barrio: Barrio) {
-    fun propinaQueDeja(monto: Float) {
-
+class Cliente(var estadoDeAnimo: EstadoDeAnimo, var barrio: Barrio, var plata: Float) {
+    fun calcularPropina(montoBase: Float) : Float {
+        return estadoDeAnimo.propinaSegunEstadoDeAnimo(montoBase, this)
     }
 }
-
-
-abstract class EstadoDeAnimo() {
-
-}
-
-
-abstract class Barrio() {
-
-}
-
