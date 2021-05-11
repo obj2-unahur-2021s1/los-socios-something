@@ -1,5 +1,5 @@
 package ar.edu.unahur.obj2.socios
-
+/*
 abstract class EstadoDeAnimo() {
     abstract fun propinaSegunEstadoDeAnimo(montoBase: Float, cliente: Cliente) : Float
 }
@@ -9,7 +9,7 @@ class Enojado() : EstadoDeAnimo() {
 }
 
 class Feliz() : EstadoDeAnimo() {
-    override fun propinaSegunEstadoDeAnimo(montoBase: Float, cliente: Cliente) = (montoBase * 1.25).toFloat()
+    override fun propinaSegunEstadoDeAnimo(montoBase: Float, cliente: Cliente) = (montoBase * 0.25).toFloat()
 }
 
 class Indiferente() : EstadoDeAnimo() {
@@ -19,3 +19,5 @@ class Indiferente() : EstadoDeAnimo() {
 class Resfriado() : EstadoDeAnimo() {
     override fun propinaSegunEstadoDeAnimo(montoBase: Float, cliente: Cliente) = montoBase * 2
 }
+
+ */

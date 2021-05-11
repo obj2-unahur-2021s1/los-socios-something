@@ -1,5 +1,5 @@
 package ar.edu.unahur.obj2.socios
-
+/*
 abstract class Barrio() {
     abstract fun propinaSegunBarrio() : Float
 }
@@ -7,3 +7,5 @@ abstract class Barrio() {
 class LasRosas() : Barrio() {
     override fun propinaSegunBarrio() = 50f
 }
+
+ */
